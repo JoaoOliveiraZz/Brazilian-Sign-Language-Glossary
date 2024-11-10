@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    return res.send("Bem vindo ao nosso servidor :)");
+    return res.json("Bem vindo ao nosso servidor :)");
 })
 
 
