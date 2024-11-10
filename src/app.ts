@@ -1,15 +1,12 @@
-import { fastify, FastifyInstance } from 'fastify';
+import express from "express"
 
+const app = express();
 
+app.use(express.json());
 
-const app: FastifyInstance = fastify();
-
-app.listen({
-    port: 3100
-}, () => {
-    console.log("Server is running...");
+app.get('/', (req, res) => {
+    return res.send("Bem vindo ao nosso servidor :)");
 })
 
-app.get("/hello", () => {
-    return "Bem vindo ao nosso servidor, amigo! "
-})
+
+app.listen(3100, () => console.log('Server is running on port ', 3100))
