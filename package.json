@@ -18,6 +18,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "@vercel/node": "^3.2.24",
     "fastify": "^5.1.0"
   }
 }

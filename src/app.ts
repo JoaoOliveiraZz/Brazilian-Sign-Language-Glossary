@@ -11,5 +11,5 @@ app.listen({
 })
 
 app.get("/hello", () => {
-    return "Bem vindo ao nosso servidor, amigo!"
+    return "Bem vindo ao nosso servidor, amigo! "
 })
