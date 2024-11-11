@@ -1,10 +1,17 @@
 import { PrismaClient } from "@prisma/client";
 import fastify from "fastify";
 import {z} from 'zod'
+import cors from "@fastify/cors"
 
 const app = fastify();
 
 const prisma = new PrismaClient();
+
+app.register(cors, {
+    origin: '*', // Permite todas as origens
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Permite todos os métodos HTTP
+    allowedHeaders: ['Content-Type', 'Authorization'], // Permite cabeçalhos específicos
+});
 
 app.get("/category", async () => {
     const categories = await prisma.category.findMany();
