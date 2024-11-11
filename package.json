@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx src/app.ts",
     "build": "tsup src",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "seed": "tsx prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
