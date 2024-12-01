@@ -4,6 +4,10 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function seed() {
+
+  prisma.category.deleteMany();
+  prisma.signal.deleteMany();
+
   const data = [
     {
       name: 'Saudações',
@@ -27,8 +31,40 @@ async function seed() {
     },
   ];
 
+  const signals = [
+    {
+      name: "Amarelo",
+      description: "Como sinalizar a cor amarela",
+      source: "testing",
+      CategoryId: "97eac0a1-b004-4362-ab6d-a1df2e806805"
+    },
+    {
+      name: "Vermelho",
+      description: "Como sinalizar a cor Vermelha",
+      source: "testing",
+      CategoryId: "97eac0a1-b004-4362-ab6d-a1df2e806805"
+    },
+    {
+      name: "Branco",
+      description: "Como sinalizar a cor Branca",
+      source: "testing",
+      CategoryId: "97eac0a1-b004-4362-ab6d-a1df2e806805"
+    },
+    {
+      name: "Azul",
+      description: "Como sinalizar a cor Azul",
+      source: "testing",
+      CategoryId: "97eac0a1-b004-4362-ab6d-a1df2e806805"
+    },
+  ]
+
   data.forEach(async (item) => {
     await prisma.category.create({
+      data: item
+    })
+  })
+  signals.forEach(async (item) => {
+    await prisma.signal.create({
       data: item
     })
   })
